@@ -7,7 +7,6 @@
     "tsc": "tsc",
     "serve": "pm2 start ./src/index.js --name Carpetas",
     "dev": "ts-node-dev src/index.ts",
-    "serve": "pm2 start ./src/index.js --name Carpetas",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Juan Camilo Sandoval",
