@@ -18,7 +18,7 @@ const fields = [ "FACTURA", "AUTORIZACIONES", "HISTORIA CLINICA","APOYO DIAGNOST
                   "FURIPS", "UNIFICADO","SOPORTES APOYOS DIAGNOSTICOS", "SOPORTES MANUALES",
                   "AUTORIZACION", "APOYOS DIAGNOSTICOS", "ADMINISTRACION DE MEDICAMENTOS",
                   "REGISTRO MEDICO","HOJA QUIRURGICA","REGISTRO ANESTESICO", "NOTAS ENFERMERIA",
-                  "OTROS SOPORTES MANUALES"].map( (field) => {return {name: field, maxCount: 20}} )
+                  "OTROS SOPORTES MANUALES"].map( (field) => {return {name: field, maxCount: 1000}} )
 
 const storage = multer.diskStorage({
   destination: function (_req, _file, cb) {
