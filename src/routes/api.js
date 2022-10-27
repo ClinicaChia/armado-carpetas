@@ -22,26 +22,26 @@ const PDFMerger = require('pdf-merger-js');
 const ApiRouter = (0, express_1.Router)();
 const ruta = "\\\\173.16.10.151\\SoportesFacturacion\\FACTURAS NUEVO SOFTWARE";
 const basePath = path_1.default.join(__dirname, '../../');
-const merger = new PDFMerger();
 require('dotenv').config();
 const fields = ["FACTURA", "AUTORIZACIONES", "HISTORIA CLINICA", "APOYO DIAGNOSTICO", "APOYO DIAGNISTICO",
     "ANEXOS", "SOPORTES", "LABORATORIOS", "SIRAS Y DOCUMENTOS", "HISTORIA CLINICA Y SOPORTES",
     "FURIPS", "UNIFICADO", "SOPORTES APOYOS DIAGNOSTICOS", "SOPORTES MANUALES",
     "AUTORIZACION", "APOYOS DIAGNOSTICOS", "ADMINISTRACION DE MEDICAMENTOS",
     "REGISTRO MEDICO", "HOJA QUIRURGICA", "REGISTRO ANESTESICO", "NOTAS ENFERMERIA",
-    "OTROS SOPORTES MANUALES"].map((field) => { return { name: field, maxCount: 20 }; });
+    "OTROS SOPORTES MANUALES"].map((field) => { return { name: field, maxCount: 1000 }; });
 const storage = multer_1.default.diskStorage({
     destination: function (_req, _file, cb) {
         cb(null, './tmp');
     },
     filename: function (_req, _file, cb) {
-        cb(null, Date.now() + '.pdf');
+        cb(null, +Math.round(Math.random() * 1E5) + Date.now() + '.pdf');
     }
 });
 const upload = (0, multer_1.default)({ storage: storage });
 const cpUpload = upload.fields(fields);
 const Merge = (arr, folder, name) => __awaiter(void 0, void 0, void 0, function* () {
     let pages = 0;
+    const merger = new PDFMerger();
     for (let i = 0; i < arr.length; i++) {
         yield merger.add(arr[i]);
         const PDF_file = yield pdf(arr[i]);

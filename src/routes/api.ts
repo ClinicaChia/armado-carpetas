@@ -10,7 +10,7 @@ const PDFMerger = require('pdf-merger-js');
 const ApiRouter = Router()
 const ruta : string = "\\\\173.16.10.151\\SoportesFacturacion\\FACTURAS NUEVO SOFTWARE"
 const basePath = path.join(__dirname, '../../')
-const  merger = new PDFMerger();
+
 require('dotenv').config()
 
 const fields = [ "FACTURA", "AUTORIZACIONES", "HISTORIA CLINICA","APOYO DIAGNOSTICO", "APOYO DIAGNISTICO",
@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
     cb(null, './tmp')
   },
   filename: function (_req, _file, cb) {
-    cb(null, Date.now() + '.pdf')
+    cb(null, + Math.round(Math.random() * 1E5)  + Date.now() + '.pdf')
   }
 })
 
@@ -48,6 +48,8 @@ interface mongoInstert{
 
 const Merge = async (arr: [], folder : string, name: string) => {
   let pages = 0
+  const merger = new PDFMerger();
+
     for (let i = 0; i < arr.length; i++) {
         await merger.add(arr[i])
         const PDF_file = await pdf(arr[i])
@@ -55,6 +57,7 @@ const Merge = async (arr: [], folder : string, name: string) => {
     }
 
     await merger.save(path.join(folder, name.replace('%', pages.toString() )))
+
 }
 
 
@@ -115,7 +118,7 @@ ApiRouter.post('/files', cpUpload, (req : any , res : Response ,_) => {
 
 
     //crear la carpeta fv
-
+    
 
 
     const { campos , factura , eps ,nombre , names} = req.body
