@@ -1,6 +1,6 @@
 {
   "name": "server-carpetas",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "API para generar todo lo relacionado con la creacion de carpetas",
   "main": "./src/index.ts",
   "scripts": {
