@@ -34,7 +34,7 @@ const storage = multer_1.default.diskStorage({
         cb(null, './tmp');
     },
     filename: function (_req, _file, cb) {
-        cb(null, +Math.round(Math.random() * 1E5) + Date.now() + '.pdf');
+        cb(null, +Math.round(Math.random() * 1E5) + Date.now() + '.jpg');
     }
 });
 const upload = (0, multer_1.default)({ storage: storage });
