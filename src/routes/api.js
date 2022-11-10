@@ -20,7 +20,7 @@ const { MongoClient } = require("mongodb");
 const pdf = require('pdf-page-counter');
 const PDFMerger = require('pdf-merger-js');
 const ApiRouter = (0, express_1.Router)();
-const ruta = "\\\\173.16.10.151\\SoportesFacturacion\\FACTURAS NUEVO SOFTWARE";
+const ruta = "\\\\173.16.10.12\\Soportes Facturacion\\FACTURAS NUEVO SOFTWARE";
 const basePath = path_1.default.join(__dirname, '../../');
 require('dotenv').config();
 const fields = ["FACTURA", "AUTORIZACIONES", "HISTORIA CLINICA", "APOYO DIAGNOSTICO", "APOYO DIAGNISTICO",
@@ -34,7 +34,7 @@ const storage = multer_1.default.diskStorage({
         cb(null, './tmp');
     },
     filename: function (_req, _file, cb) {
-        cb(null, +Math.round(Math.random() * 1E5) + Date.now() + '.jpg');
+        cb(null, +Math.round(Math.random() * 1E5) + Date.now() + '.pdf');
     }
 });
 const upload = (0, multer_1.default)({ storage: storage });

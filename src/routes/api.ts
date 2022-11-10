@@ -8,7 +8,7 @@ const { MongoClient } = require("mongodb")
 const pdf = require('pdf-page-counter')
 const PDFMerger = require('pdf-merger-js');
 const ApiRouter = Router()
-const ruta : string = "\\\\173.16.10.151\\SoportesFacturacion\\FACTURAS NUEVO SOFTWARE"
+const ruta : string = "\\\\173.16.10.12\\Soportes Facturacion\\FACTURAS NUEVO SOFTWARE"
 const basePath = path.join(__dirname, '../../')
 
 require('dotenv').config()
