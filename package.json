@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "serve": "pm2 start ./src/index.js --name Carpetas",
-    "dev": "nodemon app.ts",
+    "dev": "nodemon ./src/index.ts",
     "pru": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
