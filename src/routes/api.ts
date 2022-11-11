@@ -8,7 +8,7 @@ const { MongoClient } = require("mongodb")
 const pdf = require('pdf-page-counter')
 const PDFMerger = require('pdf-merger-js');
 const ApiRouter = Router()
-const ruta : string = "\\\\173.16.10.12\\Soportes Facturacion\\FACTURAS NUEVO SOFTWARE"
+const ruta : string = "\\\\173.16.10.151\\Soportes Facturacion\\FACTURAS NUEVO SOFTWARE"
 const basePath = path.join(__dirname, '../../')
 
 require('dotenv').config()
@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
     cb(null, './tmp')
   },
   filename: function (_req, _file, cb) {
-    cb(null, + Math.round(Math.random() * 1E5)  + Date.now() + '.pdf')
+    cb(null, Math.round(Math.random() * 1E5)  + Date.now() + '.pdf')
   }
 })
 
