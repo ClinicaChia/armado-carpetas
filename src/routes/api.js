@@ -20,7 +20,7 @@ const { MongoClient } = require("mongodb");
 const pdf = require('pdf-page-counter');
 const PDFMerger = require('pdf-merger-js');
 const ApiRouter = (0, express_1.Router)();
-const ruta = "\\\\173.16.10.151\\Soportes Facturacion\\FACTURAS NUEVO SOFTWARE";
+const ruta = "\\\\173.16.10.102\\Soportes Facturacion\\FACTURAS NUEVO SOFTWARE";
 const basePath = path_1.default.join(__dirname, '../../');
 require('dotenv').config();
 const fields = ["FACTURA", "AUTORIZACIONES", "HISTORIA CLINICA", "APOYO DIAGNOSTICO", "APOYO DIAGNISTICO",
